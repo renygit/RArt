@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_state"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/pb_loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        app:indicatorColor="#888"
+        app:indicatorName="BallSpinFadeLoaderIndicator" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_tip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <ImageView
+            android:id="@+id/iv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:src="@mipmap/ic_empty" />
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            tools:text="数据为空" />
+
+
+        <TextView
+            android:id="@+id/tv_empty_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_rect_corner_btn"
+            android:paddingLeft="15dp"
+            android:paddingTop="6dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="6dp"
+            android:textColor="#444"
+            android:visibility="gone"
+            tools:text="我急需该数据" />
+
+    </LinearLayout>
+
+</LinearLayout>

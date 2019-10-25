@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'packer'
+
+def debugMinify = true
+
+android {
+    compileSdkVersion 28
+
+    signingConfigs {
+        debug {
+            // No debug config
+            v2SigningEnabled true
+            storeFile file("rart.jks")
+            storePassword "reny00"
+            keyAlias "rart"
+            keyPassword "reny00"
+        }
+
+        release {
+            v2SigningEnabled true
+            storeFile file("rart.jks")
+            storePassword "reny00"
+            keyAlias "rart"
+            keyPassword "reny00"
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.reny.git.rart"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix ".69"
+            minifyEnabled debugMinify
+            zipAlignEnabled debugMinify
+            shrinkResources debugMinify
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+packer {
+    // 指定渠道打包输出文件名格式 https://github.com/mcxiaoke/packer-ng-plugin
+    archiveNameFormat = 'art_${channel}_${versionCode}'
+    // 指定渠道打包输出目录
+    archiveOutput = new File(project.rootProject.buildDir, "apks")
+    channelFile = new File(project.rootDir, "channels/channels.txt")
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation project(':mvvmlib')
+
+    //打包依赖库
+    implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
+
+
+    //https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    implementation 'me.jessyan:autosize:1.1.2'
+    //https://github.com/JeremyLiao/LiveEventBus
+    implementation 'com.jeremyliao:live-event-bus-x:1.5.5'
+    //https://github.com/JakeWharton/butterknife
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+    //https://github.com/alibaba/ARouter/blob/master/README_CN.md
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    //让glide用okhttp3加载图片
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.8.0'
+    //滑动退出activity
+    implementation 'com.jude:swipebackhelper:3.1.2'
+    //状态栏相关库
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+}
