@@ -29,8 +29,8 @@ public abstract class BaseFragment<T extends RBaseViewModel> extends RBaseFragme
 
     @Override
     protected MultiStateView getMultiStateView() {
-        if(null != getActivity()) {
-            View msv = getActivity().getWindow().getDecorView().findViewById(R.id.msv);
+        if(null != mRoot) {
+            View msv = mRoot.findViewById(R.id.msv);
             if (msv instanceof MultiStateView) {
                 return (MultiStateView) msv;
             }
@@ -40,8 +40,8 @@ public abstract class BaseFragment<T extends RBaseViewModel> extends RBaseFragme
 
     @Override
     protected RefreshLayout getRefreshLayout() {
-        if(null != getActivity()) {
-            View srl = getActivity().getWindow().getDecorView().findViewById(R.id.srl);
+        if(null != mRoot) {
+            View srl = mRoot.findViewById(R.id.srl);
             if (srl instanceof RefreshLayout) {
                 return (RefreshLayout) srl;
             }

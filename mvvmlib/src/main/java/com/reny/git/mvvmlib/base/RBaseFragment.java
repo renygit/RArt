@@ -25,7 +25,7 @@ import butterknife.Unbinder;
  */
 public abstract class RBaseFragment<T extends RBaseViewModel> extends Fragment implements IRBaseCallBack{
 
-    private View mRoot;
+    protected View mRoot;
     protected T vm;
     private Unbinder mUnbinder;
 
@@ -51,6 +51,7 @@ public abstract class RBaseFragment<T extends RBaseViewModel> extends Fragment i
 
         mMultiStateView = getMultiStateView();
         if(null != mMultiStateView){
+            mMultiStateView.showLoading();
             mMultiStateView.setOnRetryListener(() -> {
                 mMultiStateView.showLoading();
                 if(null != vm) {

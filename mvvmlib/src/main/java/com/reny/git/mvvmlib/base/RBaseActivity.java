@@ -48,6 +48,7 @@ public abstract class RBaseActivity<T extends RBaseViewModel> extends AppCompatA
 
         mMultiStateView = getMultiStateView();
         if(null != mMultiStateView){
+            mMultiStateView.showLoading();
             mMultiStateView.setOnRetryListener(() -> {
                 mMultiStateView.showLoading();
                 if(null != vm) {

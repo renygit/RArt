@@ -4,22 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/theme"
-        android:minHeight="?attr/actionBarSize">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/topTitleSize"
-            android:text="MVVM"/>
-
-    </androidx.appcompat.widget.Toolbar>
-
     <com.reny.git.mvvmlib.view.MultiStateView
         android:id="@+id/msv"
         android:layout_width="match_parent"
@@ -42,6 +26,13 @@
                     android:layout_height="wrap_content"
                     android:text="Hello World!"
                     android:textSize="70mm" />
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="600mm"
+                    android:layout_height="1200mm"
+                    android:layout_marginTop="60mm"
+                    android:layout_gravity="center"/>
 
             </LinearLayout>
 

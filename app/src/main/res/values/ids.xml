@@ -3,4 +3,5 @@
     <item name="msv" type="id" />
     <item name="srl" type="id" />
     <item name="toolbar" type="id" />
+    <item name="glide_tag" type="id" />
 </resources>

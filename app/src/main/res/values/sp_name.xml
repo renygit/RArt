@@ -2,4 +2,6 @@
 
     <string name="Token">Token</string>
 
+    <string name="GlideLoadIfModify">GlideLoadIfModify</string>
+
 </resources>

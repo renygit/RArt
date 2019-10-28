@@ -114,6 +114,19 @@ public static java.lang.String TABLENAME;
 -dontpreverify
 
 
+#butterknife
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
+
+-keepclasseswithmembernames class * {
+@butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+@butterknife.* <methods>;
+}
+
 # liveeventbus
 -dontwarn com.jeremyliao.liveeventbus.**
 -keep class com.jeremyliao.liveeventbus.** { *; }
@@ -134,3 +147,7 @@ public static java.lang.String TABLENAME;
 -keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
 # 如果使用了 单类注入，即不定义接口实现 IProvider，需添加下面规则，保护实现
 # -keep class * implements com.alibaba.android.arouter.facade.template.IProvider
+
+#AVLoadingIndicatorView
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }

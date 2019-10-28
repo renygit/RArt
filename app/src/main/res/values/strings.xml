@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RArt</string>
+
+    <string-array name="tabNames">
+        <item>店铺主页</item>
+        <item>商家供应</item>
+        <item>商家资讯</item>
+    </string-array>
+
 </resources>

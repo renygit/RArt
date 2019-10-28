@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity<MainVM> {
 
     @OnClick({R2.id.tv})
     public void onViewClick(View view) {
-        ARouter.getInstance().build(RConfig.second).navigation();
+        ARouter.getInstance().build(RConfig.second).withInt("age", 12).navigation();
     }
 
 }

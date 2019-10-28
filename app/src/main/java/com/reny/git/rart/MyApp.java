@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.reny.git.mvvmlib.utils.AppUtils;
 import com.reny.git.mvvmlib.utils.LogUtils;
@@ -68,5 +69,6 @@ public class MyApp extends Application {
 
         //激活状态（Started）可以实时收到消息，非激活状态（Stoped）无法实时收到消息，需等到Activity重新变成激活状态，方可收到消息
         LiveEventBus.config().lifecycleObserverAlwaysActive(false);
+        ViewTarget.setTagId(R.id.glide_tag);//解决Glide使用报错
     }
 }

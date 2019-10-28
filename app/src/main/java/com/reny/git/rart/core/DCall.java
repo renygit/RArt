@@ -25,11 +25,11 @@ public abstract class DCall<T> extends DisposableObserver<T> {
 
     @Override
     public void onNext(T value) {
+        onSuc(value);
         AppUtils.self().hideLoading();
         if (null != vm) {
             vm.onRefreshCall(isRefresh, isEmpty(value), false);
         }
-        onSuc(value);
     }
 
     @Override

@@ -11,13 +11,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.reny.git.mvvmlib.R;
-import com.wang.avi.AVLoadingIndicatorView;
-
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+
+import com.reny.git.mvvmlib.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 /**
  * Created by admin on 2017/7/21.
@@ -133,8 +133,7 @@ public class MultiStateView extends FrameLayout {
         tv_tip.setTextColor(textColor);
 
         addView(stateView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-
-        showLoading();
+        //showLoading();
     }
 
     //直接用MultiStateConfig.getInstance().setConfig(build); 单例的
