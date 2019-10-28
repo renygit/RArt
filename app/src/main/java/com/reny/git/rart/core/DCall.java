@@ -37,8 +37,8 @@ public abstract class DCall<T> extends DisposableObserver<T> {
         AppUtils.self().hideLoading();
         if (null != vm) {
             vm.onRefreshCall(isRefresh, false, true);
-            LogUtils.e(vm.TAG + "："+ e.getMessage());
         }
+        LogUtils.e((null != vm ? vm.TAG : "vm == null") + "："+ e.getMessage());
         onErr(e);
     }
 

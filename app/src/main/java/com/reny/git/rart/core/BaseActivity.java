@@ -65,6 +65,10 @@ public abstract class BaseActivity<T extends RBaseViewModel> extends RBaseActivi
     }
 
     protected Toolbar getToolbar(){
+        View toolbar = getWindow().getDecorView().findViewById(R.id.toolbar);
+        if(toolbar instanceof Toolbar){
+            return (Toolbar)toolbar;
+        }
         return null;
     }
 

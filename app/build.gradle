@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.alibaba.arouter'
 apply plugin: 'packer'
+apply plugin: 'com.hujiang.android-aspectjx'
 
 def debugMinify = true
 
@@ -117,4 +118,6 @@ dependencies {
     implementation 'com.jude:swipebackhelper:3.1.2'
     //状态栏相关库
     implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    //切面编程
+    implementation 'org.aspectj:aspectjrt:1.8.9'
 }

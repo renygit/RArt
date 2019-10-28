@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.reny.git.mvvmlib.base.RBaseFragment;
 import com.reny.git.mvvmlib.base.RBaseViewModel;
 import com.reny.git.mvvmlib.view.MultiStateView;
+import com.reny.git.rart.R;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 
 /**
@@ -28,11 +29,23 @@ public abstract class BaseFragment<T extends RBaseViewModel> extends RBaseFragme
 
     @Override
     protected MultiStateView getMultiStateView() {
+        if(null != getActivity()) {
+            View msv = getActivity().getWindow().getDecorView().findViewById(R.id.msv);
+            if (msv instanceof MultiStateView) {
+                return (MultiStateView) msv;
+            }
+        }
         return null;
     }
 
     @Override
     protected RefreshLayout getRefreshLayout() {
+        if(null != getActivity()) {
+            View srl = getActivity().getWindow().getDecorView().findViewById(R.id.srl);
+            if (srl instanceof RefreshLayout) {
+                return (RefreshLayout) srl;
+            }
+        }
         return null;
     }
 }

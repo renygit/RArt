@@ -25,6 +25,7 @@ public class MainVM extends BaseViewModel<NetRepository> {
 
     @Override
     public void loadData(boolean isRefresh) {
+        super.loadData(isRefresh);
         repo.loadSplash(new DCall<SplashPushData>(this, isRefresh) {
             @Override
             public boolean isEmpty(SplashPushData value) {
